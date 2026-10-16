@@ -8,37 +8,25 @@ public class MenuView {
     private final Scanner scanner = new Scanner(System.in);
 
     public void displayMenuList(List<MenuItem> menuItems) {
-        System.out.println("\n=== DAFTAR MENU COFFEE SHOP ===");
+        System.out.println("Tampilan Menu Awal");
         for (MenuItem item : menuItems) {
             System.out.println("ID: " + item.getId() + " | " + item.getNama() + " | Harga Base: Rp" + (int)item.getHargaBase() + " | Stok: " + item.getStok());
         }
     }
 
     public String inputIdMenu() {
-        System.out.print("Masukkan ID Menu yang ingin dipesan: ");
-        return scanner.nextLine().trim();
+        System.out.print("Input ID Menu: ");
+        return scanner.nextLine();
     }
 
     public int inputJumlah() {
-        System.out.print("Masukkan Jumlah Pesanan: ");
-        while (!scanner.hasNextInt()) {
-            System.out.print("Harus angka! Masukkan ulang jumlah pesanan: ");
-            scanner.next();
-        }
-        int val = scanner.nextInt();
-        scanner.nextLine(); 
-        return val;
+        System.out.print("Input Jumlah Pesanan: ");
+        return scanner.nextInt();
     }
 
-    public int inputCustom(String label, int max) {
+    public int inputKustomisasi(String label, int max) {
         System.out.print("Masukkan jumlah " + label + " (0 - " + max + "): ");
-        while (!scanner.hasNextInt()) {
-            System.out.print("Harus angka! Masukkan ulang: ");
-            scanner.next();
-        }
-        int val = scanner.nextInt();
-        scanner.nextLine();
-        return val;
+        return scanner.nextInt();
     }
 
     public void showMessage(String msg) {
@@ -46,9 +34,8 @@ public class MenuView {
     }
 
     public void printStruk(String detail, double total) {
-        System.out.println("\n================ STRUK PESANAN ================");
+        System.out.println("\n Hasil Pemesanan");
         System.out.println(detail);
         System.out.println("Total Harga Pembayaran: Rp" + (int)total);
-        System.out.println("===============================================");
     }
 }

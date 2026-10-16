@@ -42,15 +42,6 @@ public class Roti extends MenuItem implements Customizable {
     }
 
     @Override
-    public double hitungHargaTotal(int jumlah, String kodePromo) {
-        double total = hitungHargaTotal(jumlah);
-        if (kodePromo != null && kodePromo.equalsIgnoreCase("COFFEEHEMAT")) {
-            total = total * 0.85;
-        }
-        return total;
-    }
-
-    @Override
     public double hitungHargaTotal(int jumlah, EnumUkuran ukuran) {
         double hargaSatuan = getHargaBase() + hitungBiayaKustomisasi() + ukuran.getTambahanHarga();
         return hargaSatuan * jumlah;
